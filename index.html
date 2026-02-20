@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>XV Años - Valeria Unda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="no-scroll">
+
+    <audio id="musicaFondo" loop>
+        <source src="Echoes_in_the_Haze.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="overlay-invitacion" class="overlay">
+        <div class="frame-decoration"></div>
+        <div class="lanterns-bg"></div>
+        <div class="header-content">
+            <div class="sun-icon">☀️</div>
+            <p class="celebration-label">TIENES UNA INVITACIÓN REAL A LOS</p>
+            <p class="subtitle">XV AÑOS DE</p>
+            <h1>Valeria Unda</h1>
+
+            <div class="mensaje-invitacion">
+                "Bajo la luz de un nuevo sueño, celebro el inicio de una nueva etapa. Mi historia no estaría completa sin tu presencia en esta noche mágica e inolvidable."
+            </div>
+
+            <div id="countdown" class="countdown-container">
+                <div class="time-box"><span id="days">00</span><small>Días</small></div>
+                <div class="time-box"><span id="hours">00</span><small>Hrs</small></div>
+                <div class="time-box"><span id="minutes">00</span><small>Min</small></div>          
+            </div>
+
+            <button class="btn-abrir" onclick="abrirInvitacion()">✨ Descubrir Invitación ✨</button>
+        </div>
+    </div>
+
+    <div id="contenido-invitacion" class="main-screen hidden">
+        <div class="main-wrapper">
+            
+            <div class="glass-panel luxe-border">
+                <h3 class="cursive">Lugar & Recepción</h3>
+                <div class="map-circle">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.911244301556!2d-79.9142828!3d-2.1506047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d134988e04e9f%3A0xc15664a7810e7561!2sClub%20Biblos!5e0!3m2!1ses!2sec!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <p class="venue-title"><strong>Club Biblos</strong></p>
+                <p class="venue-text">Avenue Libano, Guayaquil</p>
+                
+                <div class="dress-code-box">
+                    <p class="dress-title">CÓDIGO DE VESTIMENTA</p>
+                    <p class="dress-type">GALA</p>
+                </div>
+
+                <button class="btn-agendar-luxe" onclick="agregarACalendario()">📅 AGENDAR EN CALENDARIO</button>
+            </div>
+
+            <div class="glass-panel luxe-border">
+                <div class="date-header">
+                    <span class="year-label">MIS QUINCE AÑOS</span>
+                    <strong class="full-date">02 de Abril, 2026</strong>
+                    <span class="hour">19:00 Horas</span>
+                </div>
+                
+                <div id="confirm-area" class="confirm-area">
+                    <p class="deadline">Agradecemos confirmar antes del 13 de marzo</p>
+                    
+                    <div id="step1">
+                        <input type="text" id="nIn" placeholder="Escribe tu nombre y apellido">
+                        <button class="btn-confirm" onclick="buscarInvitado()">Verificar mi Invitación</button>
+                    </div>
+
+                    <div id="step2" style="display:none">
+                        <p id="welcome-txt"></p>
+                        <label class="select-label">CANTIDAD DE PERSONAS</label>
+                        <select id="cSel"></select>
+                        <button class="btn-confirm" onclick="confirmarFinal()">Confirmar Asistencia ✨</button>
+                    </div>
+                    <p id="msg"></p>
+                </div>
+
+                <div class="gift-section">
+                    <p class="gift-title">✉️ Lluvia de Sobres</p>
+                    <p class="gift-text">Tu presencia es mi mejor regalo, pero si deseas tener un detalle, lo recibiré en sobre cerrado en la entrada.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
