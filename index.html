@@ -10,72 +10,87 @@
 </head>
 <body class="no-scroll">
 
-    <audio id="musicaFondo" loop>
-        <source src="Echoes_in_the_Haze.mp3" type="audio/mpeg">
-    </audio>
-
     <div id="overlay-invitacion" class="overlay">
-        <div class="frame-decoration"></div>
-        <div class="lanterns-bg"></div>
+        <video id="video-portada" autoplay loop playsinline muted class="video-bg">
+            <source src="Danna-Paola1.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay-dark"></div>
         <div class="header-content">
             <div class="sun-icon">☀️</div>
-            <p class="celebration-label">TIENES UNA INVITACIÓN A LOS</p>
-            <p class="subtitle">XV AÑOS DE</p>
+            <p class="celebration-label">ESTÁS INVITADO A UNA NOCHE MÁGICA</p>
             <h1>Valeria Unda</h1>
-
-            <div class="mensaje-invitacion">
-                "Con gran emoción y gratitud, los padres de Valeria Unda les invitan a celebrar sus quince años. Acompáñennos el sábado 4 de abril a las 7 p.m. en el Salón principal de BIBLOS  Valeria espera compartir este inicio de una nueva etapa de su vida con ustedes."
-            </div>
-
+            <p class="subtitle-xv">MIS XV AÑOS</p>
             <div id="countdown" class="countdown-container">
                 <div class="time-box"><span id="days">00</span><small>Días</small></div>
                 <div class="time-box"><span id="hours">00</span><small>Hrs</small></div>
                 <div class="time-box"><span id="minutes">00</span><small>Min</small></div>          
             </div>
-
-            <button class="btn-abrir" onclick="abrirInvitacion()">✨ Descubrir Invitación ✨</button>
+            <button class="btn-abrir" onclick="abrirInvitacion()"> DESCUBRIR INVITACIÓN </button>
         </div>
     </div>
 
     <div id="contenido-invitacion" class="main-screen hidden">
+        <video id="video-detalles" loop playsinline muted class="video-bg-segunda">
+            <source src="Danna-Paola2.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay-blur"></div>
+
         <div class="main-wrapper">
-            
             <div class="glass-panel luxe-border">
                 <h3 class="cursive">Lugar & Recepción</h3>
-                <div class="map-circle">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.911244301556!2d-79.9142828!3d-2.1506047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d134988e04e9f%3A0xc15664a7810e7561!2sClub%20Biblos!5e0!3m2!1ses!2sec!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-                <p class="venue-title"><strong>Club Biblos</strong></p>
-                <p class="venue-text">Avenue Libano, Guayaquil</p>
+                
+                <a href="https://maps.app.goo.gl/cGRh8Mm8K697LaAr5" target="_blank" class="map-full-link">
+                    <div class="map-circle">
+                        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=500" alt="Club Biblos" class="img-mapa">
+                        <div class="map-overlay"><span>VER UBICACIÓN</span></div>
+                    </div>
+                    <div class="venue-info">
+                        <p class="venue-title"><strong>Club Biblos</strong></p>
+                        <p class="venue-text">Avenida Líbano, Guayaquil</p>
+                        <small class="click-hint">📍 Toca para abrir GPS</small>
+                    </div>
+                </a>
+
+                <hr class="gold-sep">
                 
                 <div class="dress-code-box">
                     <p class="dress-title">CÓDIGO DE VESTIMENTA</p>
-                    <p class="dress-type">GALA</p>
+                    <p class="dress-type">Formal</p>
                 </div>
 
-                <button class="btn-agendar-luxe" onclick="agregarACalendario()">📅 AGENDAR EN CALENDARIO</button>
+                <hr class="gold-sep">
+
+                <button class="btn-confirm" onclick="agregarACalendario()">📅 AGENDAR EVENTO</button>
             </div>
 
             <div class="glass-panel luxe-border">
                 <div class="date-header">
                     <span class="year-label">MIS QUINCE AÑOS</span>
-                    <strong class="full-date">02 de Abril, 2026</strong>
+                    <hr class="gold-sep">
+                    <strong class="full-date">04 de Abril, 2026</strong>
                     <span class="hour">19:00 Horas</span>
                 </div>
                 
-                <div id="confirm-area" class="confirm-area">
-                    <p class="deadline">Agradecemos confirmar antes del 13 de marzo</p>
-                    
-                    <div id="step1">
-                        <input type="text" id="nIn" placeholder="Escribe tu nombre y apellido">
-                        <button class="btn-confirm" onclick="buscarInvitado()">Verificar mi Invitación</button>
-                    </div>
+                <hr class="gold-sep">
 
+                <div id="confirm-area" class="confirm-area-luxe">
+                    <div class="confirm-header">
+                        <span class="icon-check"></span>
+                        <h4>CONFIRMACIÓN</h4>
+                    </div>
+                    <div id="step1">
+                        <label class="input-label">NOMBRE DEL INVITADO</label>
+                        <input type="text" id="nIn" placeholder="Escribe tu nombre y apellido">
+                        <button class="btn-confirm pulse-effect" onclick="buscarInvitado()">Verificar mi Invitación</button>
+                    </div>
                     <div id="step2" style="display:none">
                         <p id="welcome-txt"></p>
-                        <label class="select-label">CANTIDAD DE PERSONAS</label>
-                        <select id="cSel"></select>
-                        <button class="btn-confirm" onclick="confirmarFinal()">Confirmar Asistencia ✨</button>
+                        <p id="max-pases-hint" style="color: #f4d03f; font-size: 0.85rem; margin-bottom: 10px; font-weight: 600;"></p>
+                        <label class="select-label">¿Cuántas personas asistirán?</label>
+                        <div class="select-wrapper">
+                            <select id="cSel"></select>
+                        </div>
+                        <button class="btn-confirm pulse-effect" onclick="confirmarFinal()">Confirmar Asistencia</button>
                     </div>
                     <p id="msg"></p>
                 </div>
@@ -85,12 +100,8 @@
                     <p class="gift-text">Tu presencia es mi mejor regalo, pero si deseas tener un detalle, lo recibiré en sobre cerrado en la entrada.</p>
                 </div>
             </div>
-
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
-
-
